@@ -29,6 +29,8 @@
 - **20+ Agent 集群**：A/B/C 三类 Agent 分工协作，视野隔离
 - **LSO-DAO 五境递进**：筑基→金丹→元婴→化神→渡劫的修炼式质量保障
 - **Hook+Loop 工程体系**：4 Hook 节点 + D1/D2/D3 三级验收 + 3 次循环重试
+- **跨工具迁移方案**：全系路由系统可迁移部署到 Cursor/VS Code/Windsurf/Claude Code 等平台，含嵌入式模型自适应机制
+- **自我认知 OS 手册**：本系统亦可作为 AI 智能体的自解构使用说明书 / CodeGraph 类认知图谱
 
 ---
 
@@ -603,6 +605,8 @@ function customHook2(context) {
 | `King-Skill-System/07-Hook-Loop-Engineering.md` | Hook+Loop 工程约束 | 4 Hook、D1/D2/D3、3 次循环 | 开发者、架构师 |
 | `King-Skill-System/08-Complete-Topology-Map.md` | 完整拓扑图 | 7 层架构、数据流路径、依赖关系 | 所有读者 |
 | `King-Skill-System/09-System-Prompt-References.md` | System Prompt 引用图 | 22 文件依赖链、引用统计 | 架构师、研究者 |
+| `King-Skill-System/10-Migration-Deployment-Guide.md` | **跨工具迁移部署指南** | 全系路由系统迁移到 Cursor/VS Code/Windsurf 等平台 + 嵌入式模型自适应机制 | 开发者、架构师 |
+| `King-Skill-System/11-Self-Cognitive-OS-Manual.md` | **自我认知操作系统脉络手册** | AI 智能体自解构使用说明书 / CodeGraph 类认知图谱 / 人机交互逻辑 | 所有读者、AI 研究者 |
 
 ---
 
@@ -616,6 +620,8 @@ function customHook2(context) {
 第三步：阅读 King-Skill-System/08-Complete-Topology-Map.md（看系统全景）
 第四步：继续 AI 教材 Phase 2（进阶应用）
 第五步：阅读 King-Skill-System/03-Routing-Topology.md（理解路由机制）
+第六步（选读）：阅读 King-Skill-System/10-Migration-Deployment-Guide.md（了解系统可迁移性）
+第七步（进阶）：阅读 King-Skill-System/11-Self-Cognitive-OS-Manual.md（理解智能体自我认知）
 ```
 
 ### 路径二：有经验的开发者
@@ -626,7 +632,8 @@ function customHook2(context) {
 第三步：阅读 King-Skill-System/03-Routing-Topology.md（路由机制）
 第四步：阅读 King-Skill-System/06-Agent-Cluster-20plus.md（Agent 体系）
 第五步：阅读 King-Skill-System/07-Hook-Loop-Engineering.md（质量体系）
-第六步：根据兴趣深入其他文件
+第六步：阅读 King-Skill-System/10-Migration-Deployment-Guide.md（迁移部署）
+第七步：根据兴趣深入其他文件
 ```
 
 ### 路径三：架构师/研究者
@@ -638,6 +645,8 @@ function customHook2(context) {
 第四步：深入 King-Skill-System/09-System-Prompt-References.md（依赖关系）
 第五步：对照 King-Skill-System/08-Complete-Topology-Map.md（验证理解）
 第六步：阅读三档用户指南中的"深度使用老手指南"（架构决策树）
+第七步：阅读 King-Skill-System/11-Self-Cognitive-OS-Manual.md（自我认知 / 自解构）
+第八步：阅读 King-Skill-System/10-Migration-Deployment-Guide.md（跨平台迁移方案）
 ```
 
 ---
