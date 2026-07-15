@@ -1,8 +1,8 @@
-# The Automated Mind · 一体分二式教材指南
+# The Automated Mind · 一体分二式教材指南 + MetaKing-Skill 调度系统
 
 > **从 C++ 指针到 ZK 证明 · 从 0-Token 路由到 20+ Agent 集群**
 >
-> 一本逆向解构的 AI 底层教材
+> 一本逆向解构的 AI 底层教材 × 一套以 MetaKing 为核心的七体 dispatch 调度系统
 
 ---
 
@@ -746,6 +746,113 @@ Phase 1 ────→ Phase 2 ────→ Phase 3 ────→ Phase 4 
 | 多 Agent 通信范式 | AG-03 §3.3-3.4, AG-07, Vol 08 §8.3, Vol 12 |
 | 记忆系统设计 | Vol 05, AG-06 §6.1 |
 | 智能的终极形态 | Vol 06, Vol 11, Vol 12, Vol 07 |
+
+---
+
+# 📂 第二部分：MetaKing-Skill 超智能体调度系统
+
+> **从混乱调用到意图驱动的七体 dispatch 中枢**
+
+---
+
+## 一句话定位
+
+**MetaKing** 是一套嵌入 AI Agent 内部的 **意图驱动型调度系统**——它不是在"调用工具"，而是在"理解你究竟想做什么"，然后自主组建最合适的认知体来执行。
+
+如果你用过 LangChain 或 AutoGPT，可以把 MetaKing 理解为它们的"操作系统层"：它不替代任何 Agent，而是决定**什么时候该让谁上场**。
+
+---
+
+## 第一层：它解决什么问题
+
+在 20+ Agent 同时运行的集群里，最难的从来不是"能做多少事"，而是**别做错事**。MetaKing 的七体设计把这个问题拆成四个可以量化的缺口：
+
+| 缺口类型 | 症状 | MetaKing 的处理 | 对应的认知体 |
+|---------|------|---------------|------------|
+| **Mismatch** | 用户要 A → 系统给 B | 意图对账 + 映射修正 | Thinker |
+| **Knowledge Gap** | 能调度但不知道答案是啥 | 自主联网检索，多轮澄清 | Searcher → Thinker |
+| **Action Gap** | 知道做啥但缺工具/技能 | 缺口输出 → Builder 补位 | Builder |
+| **Infra Gap** | 运行环境不支持（缺库、权限） | 基础设施缺口标记 → 降级策略 | Auditor → Builder |
+
+四条缺口构成一个完整的认知闭环——Agent 不只会执行，还会**意识到自己不会什么**。
+
+---
+
+## 第二层：七体分工——谁负责什么
+
+MetaKing 把一个大 Agent 的调度工作拆成七个专职认知体（Cognitive Body），每个只做一件事：
+
+```
+MetaKing（调度中枢）
+    ├── Planner      → 意图拆解 + 目标序列    （"想清楚要干什么"）
+    ├── Thinker      → 上下文对账 + Schema 校验 （"确认理解对了"）
+    ├── ThinkerRepair→ 当 Thinker 判断有误时回修 （"想歪了，纠正"）
+    ├── Searcher     → 联网/本地深度检索        （"去找答案"）
+    ├── Builder      → 把缺口变成可执行的设计    （"把空填上"）
+    ├── Auditor      → 运行后链路审计 + 报告     （"做完了，检查"）
+    └── Recorder     → 学习归档 + PatternBank 更新（"记住这次经验"）
+```
+
+**关键设计理念**：七个认知体不是"一个团队"，而是**一个人的七种思考维度**。它们在同一个上下文中协作，不产生额外的通信开销——代价是做减法的难度远大于做加法（删一个认知体需要遍历全部路由依赖）。
+
+---
+
+## 第三层：Gate 三步——每一轮推理都走这三关
+
+每一次用户请求到达 MetaKing 时，不直接执行，先过三个 Gate：
+
+```
+Gate A: 能力边界检查
+    → "这事我能做吗？" → 能做→继续 / 不能→返回缺口类型
+
+Gate B: 路由匹配
+    → "这事该谁做？" → Planner 拆解 → Thinker 对账 → 路由到具体认知体
+
+Gate C: 安全边界
+    → "这么做安全吗？" → 删除/覆盖/非只读 → 自动挂起 → 强制二次确认
+```
+
+Gate C 是硬约束——写入态操作无论用户是否主动要求，必须经过确认。这不是"不信任用户"，而是"不假设用户知道你将要做什么"。
+
+---
+
+## 第四层：学习——MCP 三路径
+
+MetaKing 不会只"执行"然后就忘了。它有一个 **PatternBank**，三路径积累调度经验：
+
+| 路径 | 触发条件 | 机制 |
+|------|---------|------|
+| **A：自动提取** | 每轮成功执行后 | 从执行迹自动筛高频序列，`counter ≥ PROMOTE_THRESHOLD(3)` 时晋级 Patterns |
+| **B：人工播种** | Builder 补完缺口 | 新生成的调度模式手动写入 PatternBank |
+| **C：显式追加** | 用户说"记住这个做法" | 直接追加，无需计数 |
+
+**这是什么意思？** 用第 5 次和第 50 次，MetaKing 不是同一个 Agent。它会越来越"认识你"——不是靠记忆，是靠每次成功的协作都在重塑它的路由偏好。
+
+---
+
+## 与教材的关系
+
+MetaKing 在教材体系中的位置是 **AG-07 卷的调度落地**：
+
+```
+The Automated Mind（教材）
+    └── Phase 3（Agent 实践）
+            └── AG-07: 跨AI编程工具原创智能体设计
+                    └── MetaKing-Skill ← 你正在看的部分
+```
+
+教材讲的是"Agent 该怎么被设计"，MetaKing 是这种设计哲学的一个**可运行实现**——来自 AG-07 卷的 MetaKing 替换了早期教材中的所有 King 引用，因为 King 只是出发点，MetaKing 才是终点。
+
+---
+
+## 文件索引
+
+| 文件 | 大小 | 说明 |
+|------|------|------|
+| [`King-Skill-System/meta-king-skill.md`](King-Skill-System/meta-king-skill.md) | 13.5KB | **操作规则与格式定义**（Planner 听证三步、七体路由协议、Gate 判定条件、四类缺口输出格式、数据流图、PatternBank 参数、Auditor 矩阵、Recorder 规则） |
+| [`King-Skill-System/README.md`](King-Skill-System/README.md) | 7.1KB | **架构说明与理论溯源**（VIGIL stage-gated pipeline 对应、SetupBench 缺口分类方法论、PatternBank 在线学习理论、与 Hook+Loop 对照表） |
+
+> Skill 文件只含规则，README 承载理论——遵循"操作与背景分离"原则。
 
 ---
 
