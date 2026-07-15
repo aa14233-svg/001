@@ -1,8 +1,8 @@
-# The Automated Mind · 一体分二式教材指南 + King-Skill 超智能体技能群系路由系统
+# The Automated Mind · 一体分二式教材指南
 
 > **从 C++ 指针到 ZK 证明 · 从 0-Token 路由到 20+ Agent 集群**
 >
-> 一本逆向解构的 AI 底层教材 × 一套以 King 为中心的超智能体路由系统
+> 一本逆向解构的 AI 底层教材
 
 ---
 
@@ -81,9 +81,9 @@ Phase 1 ────→ Phase 2 ────→ Phase 3 ────→ Phase 4 
 
 | 小节 | 核心内容 | 💡 直觉入口 | 拓扑性展开 |
 |------|---------|------------|-----------|
-| **1.1 存储层次结构** | L1/L2/L3 Cache + DDR5 + NVMe 各层延迟与带宽对比；Cache 行效应 | Cache ≈ CPU 旁的高速小书桌，频繁数据放手边 | → **大教材**：Vol 02 §2.3 Trie 树检索效率、Vol 03 §3.2 余弦 SIMD 优化、Vol 05 记忆分层设计<br>→ **手册**：Concept_09 快递分拣线<br>→ **King-Skill**：引力盆 0-Token 直通（缓存命中思想的顶层复用） |
-| **1.2 矩阵乘法优化：Loop Tiling** | 朴素三层循环的缓存缺失问题；分块策略使子块恰好装入 L1/L2 | Tiling = 一次性抱一摞书到桌上做完再放回 | → **大教材**：Vol 03 §3.2 余弦相似度 SIMD 优化、AG-05 §5.4 MoE 蒸馏、AG-06 记忆缓存体系<br>→ **手册**：Concept_09<br>→ **King-Skill**：LSO-DAO 筑基级（分块→分境递进的思想同构） |
-| **1.3 SIMD：一次指令处理一组数据** | AVX-512 单周期 16 个 float 乘加；FMA 融合乘加 | SIMD = 一排 16 个学生同时发卷子 | → **大教材**：Vol 03 §3.2（直接应用）、Vol 04 §4.1 IVF/HNSW 索引、AG-05 蒸馏推理加速<br>→ **手册**：Concept_09<br>→ **King-Skill**：四层路由 L0 级并发匹配（批处理思想） |
+| **1.1 存储层次结构** | L1/L2/L3 Cache + DDR5 + NVMe 各层延迟与带宽对比；Cache 行效应 | Cache ≈ CPU 旁的高速小书桌，频繁数据放手边 | → **大教材**：Vol 02 §2.3 Trie 树检索效率、Vol 03 §3.2 余弦 SIMD 优化、Vol 05 记忆分层设计<br>→ **手册**：Concept_09 快递分拣线<br>
+| **1.2 矩阵乘法优化：Loop Tiling** | 朴素三层循环的缓存缺失问题；分块策略使子块恰好装入 L1/L2 | Tiling = 一次性抱一摞书到桌上做完再放回 | → **大教材**：Vol 03 §3.2 余弦相似度 SIMD 优化、AG-05 §5.4 MoE 蒸馏、AG-06 记忆缓存体系<br>→ **手册**：Concept_09<br>
+| **1.3 SIMD：一次指令处理一组数据** | AVX-512 单周期 16 个 float 乘加；FMA 融合乘加 | SIMD = 一排 16 个学生同时发卷子 | → **大教材**：Vol 03 §3.2（直接应用）、Vol 04 §4.1 IVF/HNSW 索引、AG-05 蒸馏推理加速<br>→ **手册**：Concept_09<br>
 
 ---
 
@@ -101,9 +101,9 @@ Phase 1 ────→ Phase 2 ────→ Phase 3 ────→ Phase 4 
 
 | 小节 | 核心内容 | 💡 直觉入口 | 拓扑性展开 |
 |------|---------|------------|-----------|
-| **2.1 张量的底层内存映射：Strides** | shape=[3,4,5], stride=[20,5,1] 的内存寻址公式；`.view()` 与 `transpose()` 不复制数据只改 stride | Stride = 在内存中"走一步跨多远"；3D 张量 = 多个表格叠起来的立体本子 | → **大教材**：Vol 03 向量空间模型（Stride 是 Embedding 的物理基础）、Vol 04 图数据库 CSR（同源的内存布局思想）<br>→ **手册**：Concept_06 图书馆管理员<br>→ **King-Skill**：Agent 视野隔离（内存隔离的架构级复用） |
-| **2.2 图论：邻接矩阵 vs 邻接表（CSR）** | 100 万节点，平均度 10：邻接矩阵 1TB vs CSR ~20MB；CSR 三数组物理结构 | 邻接矩阵 = 全班座位表 100 万格子；CSR = 只写认识的人的短名单 | → **大教材**：Vol 04 §4.2 Neo4j 物理结构（CSR 直接应用）、Vol 04 §4.3 GraphRAG BFS/DFS、Vol 10 PageRank<br>→ **手册**：Concept_05 按线索破案<br>→ **King-Skill**：20+ Agent 的依赖关系图（图拓扑管理 Agent 协作） |
-| **2.3 Trie 树：分词算法的数据结构** | 中文分词 Trie 树最长词匹配，时间复杂度 O(L) | Trie = 字典的目录树——查"人工智能"沿树走 4 步 | → **大教材**：Vol 02.5 知识库构建 Agent（分块与索引）、AG-01 模型分类体系<br>→ **手册**：Concept_05<br>→ **King-Skill**：L1 特征词典匹配（Trie 树 O(L) 匹配），SkillHub 域识别前缀匹配 |
+| **2.1 张量的底层内存映射：Strides** | shape=[3,4,5], stride=[20,5,1] 的内存寻址公式；`.view()` 与 `transpose()` 不复制数据只改 stride | Stride = 在内存中"走一步跨多远"；3D 张量 = 多个表格叠起来的立体本子 | → **大教材**：Vol 03 向量空间模型（Stride 是 Embedding 的物理基础）、Vol 04 图数据库 CSR（同源的内存布局思想）<br>→ **手册**：Concept_06 图书馆管理员<br>
+| **2.2 图论：邻接矩阵 vs 邻接表（CSR）** | 100 万节点，平均度 10：邻接矩阵 1TB vs CSR ~20MB；CSR 三数组物理结构 | 邻接矩阵 = 全班座位表 100 万格子；CSR = 只写认识的人的短名单 | → **大教材**：Vol 04 §4.2 Neo4j 物理结构（CSR 直接应用）、Vol 04 §4.3 GraphRAG BFS/DFS、Vol 10 PageRank<br>→ **手册**：Concept_05 按线索破案<br>
+| **2.3 Trie 树：分词算法的数据结构** | 中文分词 Trie 树最长词匹配，时间复杂度 O(L) | Trie = 字典的目录树——查"人工智能"沿树走 4 步 | → **大教材**：Vol 02.5 知识库构建 Agent（分块与索引）、AG-01 模型分类体系<br>→ **手册**：Concept_05<br>
 
 ---
 
@@ -117,10 +117,10 @@ Phase 1 ────→ Phase 2 ────→ Phase 3 ────→ Phase 4 
 
 | 小节 | 核心内容 | 拓扑性展开 |
 |------|---------|-----------|
-| **论文写作 Agent** | 课题→检索文献→提取论点→生成综述→用户反馈→精炼 | → **大教材**：Vol 03 Embedding（检索模块）、Vol 04 RAG（上下文管理）<br>→ **手册**：Concept_06<br>→ **King-Skill**：Agent 集群中的论文写作场景（对应 King 的 B 类工程 Agent） |
+| **论文写作 Agent** | 课题→检索文献→提取论点→生成综述→用户反馈→精炼 | → **大教材**：Vol 03 Embedding（检索模块）、Vol 04 RAG（上下文管理）<br>→ **手册**：Concept_06<br>
 | **课题设计 Agent** | 模糊想法→LLM 问题拆解→搜索→推荐方案→输出计划 | → **大教材**：AG-01 模型选型<br>→ **手册**：Concept_07 搭建乐高 |
-| **实验复现 Agent** | 理解论文→识别算法→生成代码→配置环境→运行验证 | → **大教材**：Vol 01 C++ 优化<br>→ **手册**：Concept_07<br>→ **King-Skill**：Hook+Loop 循环验证（D1→D2→D3 递进） |
-| **知识库构建 Agent** | 文档→分块→Embedding→向量存储→索引→质量评估 | → **大教材**：Vol 03、Vol 04<br>→ **手册**：Concept_06<br>→ **King-Skill**：SkillHub 注册/分发流程 |
+| **实验复现 Agent** | 理解论文→识别算法→生成代码→配置环境→运行验证 | → **大教材**：Vol 01 C++ 优化<br>→ **手册**：Concept_07<br>
+| **知识库构建 Agent** | 文档→分块→Embedding→向量存储→索引→质量评估 | → **大教材**：Vol 03、Vol 04<br>→ **手册**：Concept_06<br>
 
 ---
 
@@ -136,7 +136,7 @@ Phase 1 ────→ Phase 2 ────→ Phase 3 ────→ Phase 4 
 
 | 主题 | 核心逻辑 | 拓扑性展开 |
 |------|---------|-----------|
-| **Syscall 开销** | 用户态→内核态切换 ≈ 1000 周期，小批次推理中占 10-30% 延迟 | → **大教材**：Vol 01 §1.1 缓存层级（一脉相承——减少不必要的搬运）<br>→ **手册**：Concept_09<br>→ **King-Skill**：L0 引力盆 0-Token 直通（减少不必要的路由切换） |
+| **Syscall 开销** | 用户态→内核态切换 ≈ 1000 周期，小批次推理中占 10-30% 延迟 | → **大教材**：Vol 01 §1.1 缓存层级（一脉相承——减少不必要的搬运）<br>→ **手册**：Concept_09<br>
 | **DirectML 零拷贝调度** | 直接映射 GPU 显存到用户态地址空间 | → **大教材**：Vol 02 stride（零拷贝=只改 stride 不搬数据的思想复用）<br>→ **手册**：Concept_09 |
 
 ---
@@ -163,9 +163,9 @@ Phase 1 ────→ Phase 2 ────→ Phase 3 ────→ Phase 4 
 
 | 小节 | 核心内容 | 💡 直觉入口 | 拓扑性展开 |
 |------|---------|------------|-----------|
-| **3.1 向量空间模型** | "国王-男人+女人≈女王" 的向量运算；cosine 相似度公式 | Embedding = GPS 坐标，Apple(水果)与 Banana 坐标很近 | → **大教材**：Vol 04 向量检索（直接应用）、Vol 02.5 论文 Agent（检索模块）、Vol 06 流形假设（高维空间几何）<br>→ **手册**：Concept_06 图书馆管理员<br>→ **King-Skill**：L2 工具签名匹配（参数空间匹配的数学同构） |
-| **3.2 余弦相似度的 SIMD 优化** | 1024 维：AVX-512 每周期 16 维，64 周期完成 | → Vol 01 §1.3 SIMD 的直接工程落地 | → **大教材**：Vol 01 §1.3（源头）、Vol 04 §4.1 ANN 索引加速<br>→ **手册**：Concept_09<br>→ **King-Skill**：引力盆固化后的 0-Token 匹配（高维匹配的经验固化） |
-| **3.3 维度灾难的本质** | 高维空间所有点几乎等距 → 距离度量失效 | 1000 维"超级房间"里最近点 95 米最远 100 米，区分无意义 | → **大教材**：Vol 06 流形假设（数学回答——数据蜷曲在低维流形上）<br>→ **手册**：Concept_01 揉纸团理论<br>→ **King-Skill**：四层路由分级降维（L0→L3 逐步投入计算资源的思想同构） |
+| **3.1 向量空间模型** | "国王-男人+女人≈女王" 的向量运算；cosine 相似度公式 | Embedding = GPS 坐标，Apple(水果)与 Banana 坐标很近 | → **大教材**：Vol 04 向量检索（直接应用）、Vol 02.5 论文 Agent（检索模块）、Vol 06 流形假设（高维空间几何）<br>→ **手册**：Concept_06 图书馆管理员<br>
+| **3.2 余弦相似度的 SIMD 优化** | 1024 维：AVX-512 每周期 16 维，64 周期完成 | → Vol 01 §1.3 SIMD 的直接工程落地 | → **大教材**：Vol 01 §1.3（源头）、Vol 04 §4.1 ANN 索引加速<br>→ **手册**：Concept_09<br>
+| **3.3 维度灾难的本质** | 高维空间所有点几乎等距 → 距离度量失效 | 1000 维"超级房间"里最近点 95 米最远 100 米，区分无意义 | → **大教材**：Vol 06 流形假设（数学回答——数据蜷曲在低维流形上）<br>→ **手册**：Concept_01 揉纸团理论<br>
 
 ---
 
@@ -181,9 +181,9 @@ Phase 1 ────→ Phase 2 ────→ Phase 3 ────→ Phase 4 
 
 | 小节 | 核心内容 | 💡 直觉入口 | 拓扑性展开 |
 |------|---------|------------|-----------|
-| **4.1 向量数据库工作原理** | 文档→分块→Embedding→IVF/HNSW 索引→ANN→Top-K；4 种索引对比（Flat/IVF/HNSW/PQ） | 向量索引 = 图书馆索引卡片柜；HNSW = 高速公路图——先走高速再走小道 | → **大教材**：Vol 03 Embedding（前置）、Vol 05 Alaya 记忆系统（互补——向量 DB 是长时记忆）<br>→ **手册**：Concept_05 按线索破案、Concept_06 图书馆管理员<br>→ **King-Skill**：SkillHub 注册表索引（HNSW 思想的架构同构）、AG-06 四层记忆架构 |
+| **4.1 向量数据库工作原理** | 文档→分块→Embedding→IVF/HNSW 索引→ANN→Top-K；4 种索引对比（Flat/IVF/HNSW/PQ） | 向量索引 = 图书馆索引卡片柜；HNSW = 高速公路图——先走高速再走小道 | → **大教材**：Vol 03 Embedding（前置）、Vol 05 Alaya 记忆系统（互补——向量 DB 是长时记忆）<br>→ **手册**：Concept_05 按线索破案、Concept_06 图书馆管理员<br>
 | **4.2 Neo4j 图数据库物理结构** | 物理指针预建关系链，查询不需 JOIN | → Vol 02 §2.2 CSR 格式的直接应用 | → **大教材**：Vol 02 §2.2（物理基础）、Vol 10 拓扑图谱（进阶）<br>→ **手册**：Concept_05 |
-| **4.3 图遍历：BFS/DFS 应用** | GraphRAG 用物理指针代替语义软匹配；BFS 最短路径 vs DFS 省内存 | BFS = 逐层地毯式搜索，DFS = 一条路走到黑 | → **大教材**：Vol 02.5 知识库 Agent、AG-02 论文 Agent<br>→ **手册**：Concept_05<br>→ **King-Skill**：Agent 集群的 BFS/DFS 范式（ReAct 循环的两种搜索策略） |
+| **4.3 图遍历：BFS/DFS 应用** | GraphRAG 用物理指针代替语义软匹配；BFS 最短路径 vs DFS 省内存 | BFS = 逐层地毯式搜索，DFS = 一条路走到黑 | → **大教材**：Vol 02.5 知识库 Agent、AG-02 论文 Agent<br>→ **手册**：Concept_05<br>
 
 ---
 
@@ -197,9 +197,9 @@ Phase 1 ────→ Phase 2 ────→ Phase 3 ────→ Phase 4 
 
 | 小节 | 核心内容 | 拓扑性展开 |
 |------|---------|-----------|
-| **4.5.1 视觉模型应用** | CLIP/YOLOv8/SAM 2/SDXL/FLUX 选型；Agent 集成：图片 Embedding→文本匹配检索 | → **大教材**：Vol 03 Embedding（对齐基础）<br>→ **手册**：Concept_07 搭建乐高<br>→ **King-Skill**：AG-04 具身智能的视觉模块 |
-| **4.5.2 音频模型应用** | Whisper large-v3/Coqui-AI/MusicGen 选型；会议纪要 Agent 流水线 | → **手册**：Concept_07<br>→ **King-Skill**：多模态 Agent 的音频感知集群 |
-| **4.5.3 多模态融合 Agent (MoA)** | 视频→视觉(关键帧)+音频(旁白)+LLM(综合)→结构化报告 | → **大教材**：Vol 08 Agent 部署（编排基础）<br>→ **手册**：Concept_07<br>→ **King-Skill**：20+ Agent 的 A 类（分析）+ B 类（工程）+ C 类（编码）协同模式 |
+| **4.5.1 视觉模型应用** | CLIP/YOLOv8/SAM 2/SDXL/FLUX 选型；Agent 集成：图片 Embedding→文本匹配检索 | → **大教材**：Vol 03 Embedding（对齐基础）<br>→ **手册**：Concept_07 搭建乐高<br>
+| **4.5.2 音频模型应用** | Whisper large-v3/Coqui-AI/MusicGen 选型；会议纪要 Agent 流水线 | → **手册**：Concept_07<br>
+| **4.5.3 多模态融合 Agent (MoA)** | 视频→视觉(关键帧)+音频(旁白)+LLM(综合)→结构化报告 | → **大教材**：Vol 08 Agent 部署（编排基础）<br>→ **手册**：Concept_07<br>
 
 ---
 
@@ -225,11 +225,11 @@ Phase 1 ────→ Phase 2 ────→ Phase 3 ────→ Phase 4 
 
 | 小节 | 核心内容 | 拓扑性展开 |
 |------|---------|-----------|
-| **1.1 模型分类体系** | 8 类模型全景：推理/语义/视觉/多模态/代码/音频/Embedding/端侧；每类的核心能力、代表场景、理解要点 | → **大教材**：Vol 03（Embedding 类基础）、Vol 04.5（多模态类）、Vol 08（部署约束）<br>→ **手册**：Concept_06 图书馆管理员<br>→ **King-Skill**：cc-switch 的 Provider 路由（8 类模型→10 个 Provider 的映射）、SkillHub 8 大技能组（分类思想的架构复用） |
-| **1.2 厂商矩阵** | 12 家在线厂商（OpenAI/Anthropic/Google/DeepSeek/Meta/Mistral/阿里/字节/百度/智谱/月之暗面/零一万物）对比；10 个本地模型（Llama 4/Qwen2.5/DeepSeek-R1 等）量化后硬件需求 | → **大教材**：AG-05 本地部署（硬件选型前置）<br>→ **手册**：Concept_07<br>→ **King-Skill**：cc-switch 的 Provider 切换 + token-stats 成本对比 |
+| **1.1 模型分类体系** | 8 类模型全景：推理/语义/视觉/多模态/代码/音频/Embedding/端侧；每类的核心能力、代表场景、理解要点 | → **大教材**：Vol 03（Embedding 类基础）、Vol 04.5（多模态类）、Vol 08（部署约束）<br>→ **手册**：Concept_06 图书馆管理员<br>
+| **1.2 厂商矩阵** | 12 家在线厂商（OpenAI/Anthropic/Google/DeepSeek/Meta/Mistral/阿里/字节/百度/智谱/月之暗面/零一万物）对比；10 个本地模型（Llama 4/Qwen2.5/DeepSeek-R1 等）量化后硬件需求 | → **大教材**：AG-05 本地部署（硬件选型前置）<br>→ **手册**：Concept_07<br>
 | **1.3 训练范式** | 预训练→SFT→RLHF/DPO→持续微调的全链路；理解"每阶段决定模型的什么" | → **大教材**：Vol 11 SAE（模型内部机制解释）、Phase 5 规则重塑<br>→ **手册**：Concept_07 |
-| **1.4 模型获取来源** | HuggingFace / ModelScope / Ollama Library / GGUF / vLLM 渠道分析 | → **King-Skill**：机械降神（GitHub 动态搜索→注入 Skill 的执行管道） |
-| **1.5 模型选型决策框架** | Q1 任务类型→Q2 数据出域→Q3 延迟要求→Q4 成本预算的四步决策树 | → **大教材**：AG-05（选型后的部署落地）<br>→ **手册**：Concept_07<br>→ **King-Skill**：四层路由的决策树同构（L0→L1→L2→L3 的递进裁决） |
+| **1.4 模型获取来源** | HuggingFace / ModelScope / Ollama Library / GGUF / vLLM 渠道分析 |
+| **1.5 模型选型决策框架** | Q1 任务类型→Q2 数据出域→Q3 延迟要求→Q4 成本预算的四步决策树 | → **大教材**：AG-05（选型后的部署落地）<br>→ **手册**：Concept_07<br>
 
 ---
 
@@ -244,11 +244,11 @@ Phase 1 ────→ Phase 2 ────→ Phase 3 ────→ Phase 4 
 
 | 小节 | 核心内容 | 拓扑性展开 |
 |------|---------|-----------|
-| **2.1 论文写作 Agent** | 检索→论点提取→综述大纲→用户反馈→精炼 | → **大教材**：Vol 03（检索）、Vol 04（RAG 上下文）<br>→ **手册**：Concept_06<br>→ **King-Skill**：B 类 Agent（工程架构）+ LSO-DAO 元婴级输出校验 |
-| **2.2 课题设计 Agent** | LLM 问题拆解→搜索→实验方案→计划输出 | → **大教材**：AG-01（模型选型）<br>→ **手册**：Concept_07<br>→ **King-Skill**：A 类 Agent（分析设计）+ Hook 1（准备节点检查） |
-| **2.3 实验复现 Agent** | 理解论文→代码骨架→环境配置→运行验证 | → **大教材**：Vol 01 C++（代码优化）<br>→ **手册**：Concept_07<br>→ **King-Skill**：C 类 Agent（编码执行）+ Hook+Loop 循环（D1→D2→D3） |
-| **2.4 知识体系构建 Agent** | 文档收集→分块→Embedding→索引→质量评估 | → **大教材**：Vol 03、Vol 04<br>→ **手册**：Concept_06<br>→ **King-Skill**：SkillHub 注册流程（注册→索引→分发的同构） |
-| **2.5 知识库/数据库 Agent** | 结构化数据查询→NL2SQL→语义缓存 | → **大教材**：AG-04 §4.5 数据库管理 Agent<br>→ **King-Skill**：L2 工具签名匹配（精确参数匹配的 SQL 同构） |
+| **2.1 论文写作 Agent** | 检索→论点提取→综述大纲→用户反馈→精炼 | → **大教材**：Vol 03（检索）、Vol 04（RAG 上下文）<br>→ **手册**：Concept_06<br>
+| **2.2 课题设计 Agent** | LLM 问题拆解→搜索→实验方案→计划输出 | → **大教材**：AG-01（模型选型）<br>→ **手册**：Concept_07<br>
+| **2.3 实验复现 Agent** | 理解论文→代码骨架→环境配置→运行验证 | → **大教材**：Vol 01 C++（代码优化）<br>→ **手册**：Concept_07<br>
+| **2.4 知识体系构建 Agent** | 文档收集→分块→Embedding→索引→质量评估 | → **大教材**：Vol 03、Vol 04<br>→ **手册**：Concept_06<br>
+| **2.5 知识库/数据库 Agent** | 结构化数据查询→NL2SQL→语义缓存 | → **大教材**：AG-04 §4.5 数据库管理 Agent<br>
 
 ---
 
@@ -263,13 +263,13 @@ Phase 1 ────→ Phase 2 ────→ Phase 3 ────→ Phase 4 
 
 | 小节 | 核心内容 | 拓扑性展开 |
 |------|---------|-----------|
-| **3.1 应用与插件开发** | Web App、浏览器插件、桌面程序的全 Agent 构建流程 | → **大教材**：Vol 08（Agent 部署）、Vol 08.5（工程实战）<br>→ **手册**：Concept_07<br>→ **King-Skill**：L3 LLM 裁决+全 Agent 集群协作 |
+| **3.1 应用与插件开发** | Web App、浏览器插件、桌面程序的全 Agent 构建流程 | → **大教材**：Vol 08（Agent 部署）、Vol 08.5（工程实战）<br>→ **手册**：Concept_07<br>
 | **3.2 多模态内容生成** | 视频管线（文本→LLM 分镜→SD 关键帧→音频对齐→ffmpeg）；音乐管线（MusicGen→MIDI→混音） | → **大教材**：Vol 04.5（多模态基础）<br>→ **手册**：Concept_07 |
-| **3.3 自动回复客服机器人** | 意图分类→向量检索→LLM 生成→置信度<0.7 转人工；自动解决率>70% | → **大教材**：Vol 04 RAG（核心组件）、Vol 03 Embedding<br>→ **手册**：Concept_06、Concept_08 减速带（FSM 路由状态控制）<br>→ **King-Skill**：Hook+Loop 质量保障 + D1/D2/D3 验收 |
-| **3.4 TUI 工具** | Claude Code / OpenCode 架构：终端内 Agent 式编程 | → **手册**：Concept_08<br>→ **King-Skill**：Agent 集群的终端模式 |
-| **3.5 CC Switch** | Provider 注册中心、MCP 热重载（King-Skill 三大核心技能之一） | → **大教材**：AG-01 厂商矩阵（Provider 选型）<br>→ **King-Skill**：本系统的 cc-switch 技能——教材即源码，源码即教材 |
-| **3.6 Hermes Hook+Loop** | Hook 5 点接口、事件循环、Skill+MCP 插件、System Prompt 设计 | → **大教材**：Vol 08 FSM 状态机<br>→ **手册**：Concept_08<br>→ **King-Skill**：本系统的 Hook+Loop 工程体系——教材原型即 King-Skill 的实现参照 |
-| **3.7-3.8 深度技术栈** | Tower 中间件 / Serde 反序列化 / Axum 错误处理 / Rust GUI 框架 | → **大教材**：Vol 01 C++（系统级编程的另一面）<br>→ **King-Skill**：机械降神的动态注入能力（Rust 编译→部署的全链路） |
+| **3.3 自动回复客服机器人** | 意图分类→向量检索→LLM 生成→置信度<0.7 转人工；自动解决率>70% | → **大教材**：Vol 04 RAG（核心组件）、Vol 03 Embedding<br>→ **手册**：Concept_06、Concept_08 减速带（FSM 路由状态控制）<br>
+| **3.4 TUI 工具** | Claude Code / OpenCode 架构：终端内 Agent 式编程 | → **手册**：Concept_08<br>
+| **3.5 CC Switch** | Provider 注册中心、MCP 热重载 | → **大教材**：AG-01 厂商矩阵（Provider 选型）<br>
+| **3.6 Hermes Hook+Loop** | Hook 5 点接口、事件循环、Skill+MCP 插件、System Prompt 设计 | → **大教材**：Vol 08 FSM 状态机<br>→ **手册**：Concept_08<br>
+| **3.7-3.8 深度技术栈** | Tower 中间件 / Serde 反序列化 / Axum 错误处理 / Rust GUI 框架 | → **大教材**：Vol 01 C++（系统级编程的另一面）<br>
 
 ---
 
@@ -284,12 +284,12 @@ Phase 1 ────→ Phase 2 ────→ Phase 3 ────→ Phase 4 
 
 | 小节 | 核心内容 | 拓扑性展开 |
 |------|---------|-----------|
-| **4.1 具身智能概述** | 机器人控制、IoT 设备、边缘 Agent 的约束条件（延迟/模型大小/功耗） | → **大教材**：Vol 08 §8.4 具身智能（约束对比表）<br>→ **手册**：Concept_07<br>→ **King-Skill**：Agent 视野隔离（资源约束的架构级限制） |
-| **4.2 端侧部署专项** | 量化、剪枝、蒸馏的工程实践 | → **大教材**：AG-05 部署与蒸馏（深化）<br>→ **手册**：Concept_09<br>→ **King-Skill**：L0 引力盆（资源受限下的 0 成本路由） |
+| **4.1 具身智能概述** | 机器人控制、IoT 设备、边缘 Agent 的约束条件（延迟/模型大小/功耗） | → **大教材**：Vol 08 §8.4 具身智能（约束对比表）<br>→ **手册**：Concept_07<br>
+| **4.2 端侧部署专项** | 量化、剪枝、蒸馏的工程实践 | → **大教材**：AG-05 部署与蒸馏（深化）<br>→ **手册**：Concept_09<br>
 | **4.3 视觉模型实战** | YOLOv8 目标检测、SAM 2 分割在 Agent 中的集成 | → **大教材**：Vol 04.5（视觉模型选型）<br>→ **手册**：Concept_07 |
-| **4.4 音频模型实战** | Whisper 语音转写→LLM 摘要→待办提取→邮件发送的完整 Agent 链 | → **大教材**：Vol 04.5 §4.5.2<br>→ **手册**：Concept_07<br>→ **King-Skill**：呼吸管道（吸入→呼出→归墟的 Agent 生命周期） |
-| **4.5 数据库管理 Agent** | NL2SQL 查询→向量数据库维护→缓存一致性 | → **大教材**：Vol 04（RAG 管道）、AG-02 §2.5<br>→ **手册**：Concept_05、Concept_06<br>→ **King-Skill**：L2 精确参数匹配（SQL 参数 Schema 校验的同构） |
-| **4.6 传感器融合** | 多源传感数据的时间对齐+空间对齐→融合推理 | → **大教材**：Vol 04.5（模态对齐）<br>→ **King-Skill**：多 Agent 并行采集→LSO-DAO 化神级融合 |
+| **4.4 音频模型实战** | Whisper 语音转写→LLM 摘要→待办提取→邮件发送的完整 Agent 链 | → **大教材**：Vol 04.5 §4.5.2<br>→ **手册**：Concept_07<br>
+| **4.5 数据库管理 Agent** | NL2SQL 查询→向量数据库维护→缓存一致性 | → **大教材**：Vol 04（RAG 管道）、AG-02 §2.5<br>→ **手册**：Concept_05、Concept_06<br>
+| **4.6 传感器融合** | 多源传感数据的时间对齐+空间对齐→融合推理 | → **大教材**：Vol 04.5（模态对齐）<br>
 
 ---
 
@@ -305,10 +305,10 @@ Phase 1 ────→ Phase 2 ────→ Phase 3 ────→ Phase 4 
 
 | 小节 | 核心内容 | 拓扑性展开 |
 |------|---------|-----------|
-| **5.1 本地推理引擎生态** | Ollama / LM Studio / Hermes 三引擎对比；Ollama 的 Modelfile 定制、OpenAI 兼容 API | → **大教材**：AG-01 §1.4 模型获取（Ollama 是第一渠道）<br>→ **手册**：Concept_09<br>→ **King-Skill**：cc-switch 的本地 Provider 路由（Ollama→localhost 的热切换） |
-| **5.2 硬件选型与量化策略** | GPU vs CPU vs NPU；INT4/INT8/FP16 量化精度对比；显存计算公式 | → **大教材**：Vol 01（算力基础）、AG-01（模型参数量→硬件需求）<br>→ **手册**：Concept_09<br>→ **King-Skill**：cc-switch env_check（硬件环境检测的工程实现） |
+| **5.1 本地推理引擎生态** | Ollama / LM Studio / Hermes 三引擎对比；Ollama 的 Modelfile 定制、OpenAI 兼容 API | → **大教材**：AG-01 §1.4 模型获取（Ollama 是第一渠道）<br>→ **手册**：Concept_09<br>
+| **5.2 硬件选型与量化策略** | GPU vs CPU vs NPU；INT4/INT8/FP16 量化精度对比；显存计算公式 | → **大教材**：Vol 01（算力基础）、AG-01（模型参数量→硬件需求）<br>→ **手册**：Concept_09<br>
 | **5.3 操作系统底层原理** | Linux vs Windows 推理栈对比：CUDA/WSL2 与 DirectML/ONNX Runtime；内存映射 vs 分页加载 | → **大教材**：Vol 09（Windows 内核映射——内存映射的底层原理）<br>→ **手册**：Concept_09 |
-| **5.4 MoE 蒸馏实战流程** | 4 阶段流程：教师推理→软标签生成→学生训练→精度回测；蒸馏温度调节 | → **大教材**：Vol 01 SIMD（学生推理加速的物理基础）、AG-06 四层记忆（蒸馏后的模型需要更高效的记忆体系）<br>→ **手册**：Concept_09<br>→ **King-Skill**：LSO-DAO 五境递进（蒸馏 4 阶段→筑基→金丹→元婴→化神的同构） |
+| **5.4 MoE 蒸馏实战流程** | 4 阶段流程：教师推理→软标签生成→学生训练→精度回测；蒸馏温度调节 | → **大教材**：Vol 01 SIMD（学生推理加速的物理基础）、AG-06 四层记忆（蒸馏后的模型需要更高效的记忆体系）<br>→ **手册**：Concept_09<br>
 
 ---
 
@@ -324,12 +324,12 @@ Phase 1 ────→ Phase 2 ────→ Phase 3 ────→ Phase 4 
 
 | 小节 | 核心内容 | 拓扑性展开 |
 |------|---------|-----------|
-| **6.1 四层记忆架构** | 工作记忆(短期)→情景记忆(会话)→语义记忆(知识)→程序记忆(技能)；每层的容量/持久化/检索策略 | → **大教材**：Vol 05 Alaya（遗忘曲线理论——AG-06 的记忆引擎就是 Alaya 的工程实现）、Vol 04 向量数据库（语义记忆的物理存储）<br>→ **手册**：Concept_10（记忆的开水器）<br>→ **King-Skill**：Hook+Loop 的 4 Hook 节点（四层记忆→4 个检查点的同构） |
-| **6.2 缓存体系与命中率优化** | 3 层缓存：L1 Prompt Cache→L2 Semantic Cache→L3 KV Cache；Python 实现 `SemanticCache` 类（LRU+语义哈希） | → **大教材**：Vol 01 §1.1 存储层次结构（缓存分层的源头——L1/L2/L3 Cache→L1/L2/L3 Agent Cache）<br>→ **手册**：Concept_10<br>→ **King-Skill**：引力盆的 3 级固化（L0 命中→L1 特征→L2 签名，命中率递进思想同构于缓存层级） |
-| **6.3 Token 节省策略全景** | 3 级 Token 压缩：上下文修剪→语义摘要→结构化压缩；Python 实现 `TokenBudget` 限流器 | → **大教材**：Vol 03 §3.3 维度灾难（高维空间→需要压缩）<br>→ **King-Skill**：token-stats 技能的工程实现基础（Token 预算管理的算法来源） |
-| **6.4 Code Graph 式任务理解** | 函数调用图→`TaskGraph` 类实现拓扑排序+依赖分析+增量更新 | → **大教材**：Vol 02 §2.2 图论（CSR/邻接表——Task Graph 的数据结构基础）、Vol 04 §4.3 GraphRAG（图遍历思想复用）<br>→ **手册**：Concept_05<br>→ **King-Skill**：L0→L1→L2→L3 的依赖链路由（Task Graph 的短程依赖→长程依赖的同构） |
-| **6.5 多模态记忆的统一索引** | `MultimodalMemoryIndex` 类：文本/图像/音频的统一 Embedding 索引 | → **大教材**：Vol 04.5 多模态融合 Agent、Vol 03 Embedding<br>→ **手册**：Concept_06、Concept_07<br>→ **King-Skill**：多模态 Agent 集群的统一路由入口 |
-| **6.6 完整架构蓝图** | 6 个类的组合架构图：从用户请求→Token 审计→记忆协同→Task Graph 编排 | → **大教材**：全书 Phase 1-4 的工程汇聚点<br>→ **King-Skill**：本系统的完整拓扑蓝图（AG-06 → King-Skill/08-Complete-Topology-Map.md 的教材原型） |
+| **6.1 四层记忆架构** | 工作记忆(短期)→情景记忆(会话)→语义记忆(知识)→程序记忆(技能)；每层的容量/持久化/检索策略 | → **大教材**：Vol 05 Alaya（遗忘曲线理论——AG-06 的记忆引擎就是 Alaya 的工程实现）、Vol 04 向量数据库（语义记忆的物理存储）<br>→ **手册**：Concept_10（记忆的开水器）<br>
+| **6.2 缓存体系与命中率优化** | 3 层缓存：L1 Prompt Cache→L2 Semantic Cache→L3 KV Cache；Python 实现 `SemanticCache` 类（LRU+语义哈希） | → **大教材**：Vol 01 §1.1 存储层次结构（缓存分层的源头——L1/L2/L3 Cache→L1/L2/L3 Agent Cache）<br>→ **手册**：Concept_10<br>
+| **6.3 Token 节省策略全景** | 3 级 Token 压缩：上下文修剪→语义摘要→结构化压缩；Python 实现 `TokenBudget` 限流器 | → **大教材**：Vol 03 §3.3 维度灾难（高维空间→需要压缩）<br>
+| **6.4 Code Graph 式任务理解** | 函数调用图→`TaskGraph` 类实现拓扑排序+依赖分析+增量更新 | → **大教材**：Vol 02 §2.2 图论（CSR/邻接表——Task Graph 的数据结构基础）、Vol 04 §4.3 GraphRAG（图遍历思想复用）<br>→ **手册**：Concept_05<br>
+| **6.5 多模态记忆的统一索引** | `MultimodalMemoryIndex` 类：文本/图像/音频的统一 Embedding 索引 | → **大教材**：Vol 04.5 多模态融合 Agent、Vol 03 Embedding<br>→ **手册**：Concept_06、Concept_07<br>
+| **6.6 完整架构蓝图** | 6 个类的组合架构图：从用户请求→Token 审计→记忆协同→Task Graph 编排 | → **大教材**：全书 Phase 1-4 的工程汇聚点<br>
 
 ---
 
@@ -344,19 +344,19 @@ Phase 1 ────→ Phase 2 ────→ Phase 3 ────→ Phase 4 
 
 | 小节 | 核心内容 | 拓扑性展开 |
 |------|---------|-----------|
-| **1.1 原创智能体概念** | 定义：针对特定工具/IDE 利用扩展机制自研 Agent；与"现成助手"的本质区别（可控性/定制深度/私有数据管道）；与"远程 Agent"的本质区别（本地注册运行） | → **大教材**：AG-06 四层记忆（原创智能体的记忆层来源）、Vol 08 ReAct/FSM（编排基础）<br>→ **手册**：Concept_11 组装工作台<br>→ **King-Skill**：整个 King-Skill 系统是原创智能体设计的顶层参照 |
-| **1.2 通用架构骨架** | System Prompt=宪法 → Skill=部门法 → 路由=司法 → MCP=对外接口；四层分层对比 | → **King-Skill**：四层路由（L0→L3 的"宪法→部门法→司法"同构） |
+| **1.1 原创智能体概念** | 定义：针对特定工具/IDE 利用扩展机制自研 Agent；与"现成助手"的本质区别（可控性/定制深度/私有数据管道）；与"远程 Agent"的本质区别（本地注册运行） | → **大教材**：AG-06 四层记忆（原创智能体的记忆层来源）、Vol 08 ReAct/FSM（编排基础）<br>→ **手册**：Concept_11 组装工作台<br>
+| **1.2 通用架构骨架** | System Prompt=宪法 → Skill=部门法 → 路由=司法 → MCP=对外接口；四层分层对比 |
 | **2.1 VS Code 生态** | Cline（.clinerules）+ Continue（config.json）的 System Prompt 注入；Task Provider API + LSP | → **大教材**：Vol 08 §8.1 ReAct 框架（Cline 的 Agent 循环原型）<br>→ **手册**：Concept_07、Concept_11 |
 | **2.2 QwenCoder** | 通义灵码插件架构；System Prompt 中文偏好编写要点（角色锚定/示例驱动） | → **大教材**：AG-01 厂商矩阵（Qwen 模型定位）<br>→ **手册**：Concept_11 |
-| **2.3 OpenCode** | .opencode.md 入口；L1 特征词典路由（关键词匹配 YAML 配置）；MCP Plugin 接口 | → **King-Skill**：L1 特征词典（OpenCode 路由是 King-Skill L1 的轻量实现）<br>→ **手册**：Concept_11 |
+| **2.3 OpenCode** | .opencode.md 入口；L1 特征词典路由（关键词匹配 YAML 配置）；MCP Plugin 接口 |
 | **2.4 Claude Code** | CLAUDE.md 核心入口；Hook 系统（pre/post hooks）；自主路由 vs 引导路由；mcp.json 配置 | → **大教材**：Vol 08 §8.2 FSM（Claude Code 的引导路由是 FSM 在终端 Agent 的变体）<br>→ **手册**：Concept_08、Concept_11 |
-| **2.5 Trae（King Agent）** | 回顾 King Agent 架构；SkillHub 注册垂直 Agent；四层结构 System Prompt 精简 | → **King-Skill**：King-Skill 全系统（Trae 是原创智能体设计的最佳实践平台）<br>→ **手册**：Concept_11 |
+| **2.5 Trae** | 回顾 Trae Agent 架构；SkillHub 注册垂直 Agent；四层结构 System Prompt 精简 |
 | **2.6 Hermes** | Hook+Loop 架构承接 AG-03 §3.6；模板层次 System Prompt；事件驱动路由；MCP 适配器 | → **大教材**：AG-03 §3.6（Hermes Hook+Loop 原型）<br>→ **手册**：Concept_08、Concept_11 |
 | **2.7 其他工具补充** | Cursor（.cursorrules）/ Windsurf（Cascade 配置）/ Aider（.aider.conf.yml）/ JetBrains AI（插件开发）；11 工具总结对比表 | → **大教材**：AG-03 全域工程场景<br>→ **手册**：Concept_07、Concept_11 |
 | **3.1 跨工具 System Prompt 模式** | 通用设计公式：角色定义+能力边界+输出规范+工作流；五个经典模式 | → **大教材**：AG-01 §1.3（不同模型对 System Prompt 的响应差异）<br>→ **手册**：Concept_11 |
-| **3.2 跨工具 Skill 设计模式** | Skill 三要素：触发条件/执行逻辑/输出格式；轻量 vs 重型取舍；静态路由 vs 动态路由 | → **King-Skill**：L0→L3 路由（静态路由→L0/L1，动态路由→L2/L3） |
-| **3.3 跨工具 MCP 适配** | MCP 协议本质；各工具配置格式对比表（JSON/YAML/Markdown）；Skill→MCP Tool 三种映射模式 | → **King-Skill**：cc-switch 的 MCP 管理（MCP 热重载的工程实现） |
-| **4.1 拓扑关联总结** | 11 工具 × 4 维度（System Prompt 入口/Skill 机制/MCP 支持/路由方式）总结表 | → **大教材**：全书 Phase 3 的工具汇聚点<br>→ **King-Skill**：原创智能体是 King-Skill 路由系统的"落地接口" |
+| **3.2 跨工具 Skill 设计模式** | Skill 三要素：触发条件/执行逻辑/输出格式；轻量 vs 重型取舍；静态路由 vs 动态路由 |
+| **3.3 跨工具 MCP 适配** | MCP 协议本质；各工具配置格式对比表（JSON/YAML/Markdown）；Skill→MCP Tool 三种映射模式 |
+| **4.1 拓扑关联总结** | 11 工具 × 4 维度（System Prompt 入口/Skill 机制/MCP 支持/路由方式）总结表 | → **大教材**：全书 Phase 3 的工具汇聚点<br>
 
 ---
 
@@ -371,9 +371,9 @@ Phase 1 ────→ Phase 2 ────→ Phase 3 ────→ Phase 4 
 
 | 小节 | 核心内容 | 拓扑性展开 |
 |------|---------|-----------|
-| **8.1 ReAct 框架** | Thought→Action→Observation→Thought 循环；LLM 自我纠偏的原理 | → **大教材**：AG-03 全场景 Agent（ReAct 的具体场景实现）、AG-02 学习 Agent（ReAct 在学习中的变体）<br>→ **手册**：Concept_07 搭建乐高<br>→ **King-Skill**：Hook+Loop 工程（ReAct→Hook 的升级——在自然循环中插入强制检查点） |
-| **8.2 状态机对 Agent 的硬性约束（FSM）** | 定义合法状态(IDLE/SEARCHING/ANALYZING/…)和转移路径；LLM 只能在地图红线内选择 | → **大教材**：Phase 5 Vol 07（Neuro-Symbolic——FSM 是约束满足问题在 Agent 层的最小实现）<br>→ **手册**：Concept_08 减速带<br>→ **King-Skill**：D1/D2/D3 验收（FSM 的状态合法转移→每阶段输出的格式/功能/性能检查） |
-| **8.3 异步并发：多 Agent 通信** | `asyncio.gather()` 并行调度数十个 Agent | → **大教材**：AG-06 Task Graph（编排原理）<br>→ **King-Skill**：20+ Agent 集群的通信拓扑 |
+| **8.1 ReAct 框架** | Thought→Action→Observation→Thought 循环；LLM 自我纠偏的原理 | → **大教材**：AG-03 全场景 Agent（ReAct 的具体场景实现）、AG-02 学习 Agent（ReAct 在学习中的变体）<br>→ **手册**：Concept_07 搭建乐高<br>
+| **8.2 状态机对 Agent 的硬性约束（FSM）** | 定义合法状态(IDLE/SEARCHING/ANALYZING/…)和转移路径；LLM 只能在地图红线内选择 | → **大教材**：Phase 5 Vol 07（Neuro-Symbolic——FSM 是约束满足问题在 Agent 层的最小实现）<br>→ **手册**：Concept_08 减速带<br>
+| **8.3 异步并发：多 Agent 通信** | `asyncio.gather()` 并行调度数十个 Agent | → **大教材**：AG-06 Task Graph（编排原理）<br>
 | **8.4 具身智能约束对比** | 云端 Agent（秒级/无限制/不限功耗）vs 具身 Agent（毫秒级/<1GB/电池约束） | → **大教材**：AG-04 具身智能（详细展开） |
 
 ---
@@ -390,7 +390,7 @@ Phase 1 ────→ Phase 2 ────→ Phase 3 ────→ Phase 4 
 |------|---------|-----------|
 | **8.5.1 设计应用/插件/网页** | 需求→模型选型→架构设计→快速原型→迭代的 5 步法 | → **大教材**：AG-03（工程项目 Agent 的完整流程）<br>→ **手册**：Concept_07 |
 | **8.5.2 自动回复客服机器人** | 意图分类→向量检索→LLM→置信度<0.7 转人工；自动解决率>70% | → **大教材**：Vol 04 RAG（核心组件）<br>→ **手册**：Concept_06 |
-| **8.5.3 多模态生成管线** | 视频管线（文本→分镜→SD 关键帧→音频对齐）文 | → **大教材**：Vol 04.5（多模态基础）<br>→ **手册**：Concept_07<br>→ **King-Skill**：LSO-DAO 五境递进（每个管线段对应一境检查） |
+| **8.5.3 多模态生成管线** | 视频管线（文本→分镜→SD 关键帧→音频对齐）文 | → **大教材**：Vol 04.5（多模态基础）<br>→ **手册**：Concept_07<br>
 
 ---
 
@@ -416,7 +416,7 @@ Phase 1 ────→ Phase 2 ────→ Phase 3 ────→ Phase 4 
 
 | 主题 | 核心逻辑 | 拓扑性展开 |
 |------|---------|-----------|
-| **遗忘的艺术（艾宾浩斯曲线）** | 记忆随时间对数衰减：1 小时后约 50%，1 天后约 30%；在向量库的 4 级实现（缓存区→固化→归档→清理） | → **大教材**：AG-06 §6.1 四层记忆架构（Alaya 的工程实现）、Vol 04 向量数据库（存储层）<br>→ **手册**：Concept_10 记忆的开水器<br>→ **King-Skill**：引力盆的冷热数据分层（热路径固化 L0，冷路径 30 天不命中自动衰减） |
+| **遗忘的艺术（艾宾浩斯曲线）** | 记忆随时间对数衰减：1 小时后约 50%，1 天后约 30%；在向量库的 4 级实现（缓存区→固化→归档→清理） | → **大教材**：AG-06 §6.1 四层记忆架构（Alaya 的工程实现）、Vol 04 向量数据库（存储层）<br>→ **手册**：Concept_10 记忆的开水器<br>
 
 ---
 
@@ -432,7 +432,7 @@ Phase 1 ────→ Phase 2 ────→ Phase 3 ────→ Phase 4 
 
 | 主题 | 核心逻辑 | 拓扑性展开 |
 |------|---------|-----------|
-| **揉纸团理论（流形假设）** | A4 纸揉成团：三维看占空间，纸上蚂蚁仍是二维；256×256 图片(65,536 维)的流形维度可能只有 30-50 | → **大教材**：Vol 03 §3.3 维度灾难（问题——高维距离失效；答案——数据在低维流形上）<br>→ **手册**：Concept_01 揉纸团理论<br>→ **King-Skill**：四层路由的降维思想（高维请求空间→低维路由分类 L0/L1/L2/L3） |
+| **揉纸团理论（流形假设）** | A4 纸揉成团：三维看占空间，纸上蚂蚁仍是二维；256×256 图片(65,536 维)的流形维度可能只有 30-50 | → **大教材**：Vol 03 §3.3 维度灾难（问题——高维距离失效；答案——数据在低维流形上）<br>→ **手册**：Concept_01 揉纸团理论<br>
 | **非线性激活函数展平流形** | ReLU/GELU 把"揉皱的流形"在不同表示空间中展平；每层都在做"展开→旋转→再揉皱→再展开" | → **大教材**：Vol 11 SAE（逆向——在展平后的空间中找到真正的语义方向）<br>→ **手册**：Concept_01 |
 
 ---
@@ -449,8 +449,8 @@ Phase 1 ────→ Phase 2 ────→ Phase 3 ────→ Phase 4 
 
 | 主题 | 核心逻辑 | 拓扑性展开 |
 |------|---------|-----------|
-| **子图动态提取** | 不从种子节点全图遍历，根据相关性度量动态扩展 | → **大教材**：Vol 04 §4.3 GraphRAG（基础——"找关系"→"找重要性"的进阶）<br>→ **手册**：Concept_05 按线索破案<br>→ **King-Skill**：机械降神的搜索策略（不遍历全库，动态扩展可用 Skill） |
-| **PageRank 排序** | "被重要节点引用的节点更重要"——不是所有节点平等 | → **大教材**：Vol 04 RAG（cosine 排序的互补）<br>→ **手册**：Concept_05<br>→ **King-Skill**：引力盆路径权重（success_count+avg_token_cost 的加权排序→PageRank 的策略复用） |
+| **子图动态提取** | 不从种子节点全图遍历，根据相关性度量动态扩展 | → **大教材**：Vol 04 §4.3 GraphRAG（基础——"找关系"→"找重要性"的进阶）<br>→ **手册**：Concept_05 按线索破案<br>
+| **PageRank 排序** | "被重要节点引用的节点更重要"——不是所有节点平等 | → **大教材**：Vol 04 RAG（cosine 排序的互补）<br>→ **手册**：Concept_05<br>
 
 ---
 
@@ -476,7 +476,7 @@ Phase 1 ────→ Phase 2 ────→ Phase 3 ────→ Phase 4 
 
 | 主题 | 核心逻辑 | 拓扑性展开 |
 |------|---------|-----------|
-| **销售员与审计师（Neuro-Symbolic 协作）** | 用户需求→LLM 翻译为形式化约束→Z3 SMT 检查可满足性→LLM 转自然语言 | → **大教材**：Vol 08 §8.2 FSM（FSM 约束动作空间→Neuro-Symbolic 约束输出正确性的升级）<br>→ **手册**：Concept_02 销售员与审计师、Concept_08 减速带<br>→ **King-Skill**：L2 工具签名匹配（精确 Schema 校验）+ Hook+Loop 的 D1/D2/D3（LLM 输出→形式化校验的自动化） |
+| **销售员与审计师（Neuro-Symbolic 协作）** | 用户需求→LLM 翻译为形式化约束→Z3 SMT 检查可满足性→LLM 转自然语言 | → **大教材**：Vol 08 §8.2 FSM（FSM 约束动作空间→Neuro-Symbolic 约束输出正确性的升级）<br>→ **手册**：Concept_02 销售员与审计师、Concept_08 减速带<br>
 
 ---
 
@@ -492,7 +492,7 @@ Phase 1 ────→ Phase 2 ────→ Phase 3 ────→ Phase 4 
 
 | 主题 | 核心逻辑 | 拓扑性展开 |
 |------|---------|-----------|
-| **用最少的词概括一篇文章（L₁ 稀疏编码）** | L = ‖x - Ŵ(Wx)‖² + λ‖Wx‖₁；每个隐藏神经元≈一个可解释特征（如第 37 号=识别 for 循环） | → **大教材**：Vol 06（流形假设的逆向工程——在展平后的高维表示中找到低维语义方向）<br>→ **手册**：Concept_03 拥挤的无线电频道<br>→ **King-Skill**：L1 特征词典（SAE 的可解释特征→Trie 树的关键词匹配——在模型内部特征与系统路由特征之间建立映射） |
+| **用最少的词概括一篇文章（L₁ 稀疏编码）** | L = ‖x - Ŵ(Wx)‖² + λ‖Wx‖₁；每个隐藏神经元≈一个可解释特征（如第 37 号=识别 for 循环） | → **大教材**：Vol 06（流形假设的逆向工程——在展平后的高维表示中找到低维语义方向）<br>→ **手册**：Concept_03 拥挤的无线电频道<br>
 
 ---
 
@@ -508,7 +508,7 @@ Phase 1 ────→ Phase 2 ────→ Phase 3 ────→ Phase 4 
 
 | 主题 | 核心逻辑 | 拓扑性展开 |
 |------|---------|-----------|
-| **蒙眼吃辣椒证明（ZK-SNARKs）** | 将神经网络推理转为算术电路，证明"输入 X→输出 Y"而不披露中间层激活值 | → **大教材**：Vol 08 多 Agent 通信（多 Agent 信任的终极形态——从"信任但验证"到"无需信任"）<br>→ **手册**：Concept_04 蒙眼吃辣椒证明<br>→ **King-Skill**：机械降神的一次性生命周期（注入→执行→回收——ZK 的不披露中间状态的同构） |
+| **蒙眼吃辣椒证明（ZK-SNARKs）** | 将神经网络推理转为算术电路，证明"输入 X→输出 Y"而不披露中间层激活值 | → **大教材**：Vol 08 多 Agent 通信（多 Agent 信任的终极形态——从"信任但验证"到"无需信任"）<br>→ **手册**：Concept_04 蒙眼吃辣椒证明<br>
 
 ---
 
@@ -572,7 +572,6 @@ Phase 1 ────→ Phase 2 ────→ Phase 3 ────→ Phase 4 
 | `vol07_neurosymbolic` | P5 | Z3 约束求解入门 | Vol 07：数字城邦秩序 |
 | `vol11_sae` | P5 | SAE 稀疏编码与特征可视化 | Vol 11：机械可解释性 |
 | `vol12_zkml` | P5 | ZK-SNARKs 证明验证循环 | Vol 12：多智能体与密码学 |
-
 
 ## 第五章 · 三档式教材使用指南
 
@@ -656,7 +655,7 @@ Phase 1 ────→ Phase 2 ────→ Phase 3 ────→ Phase 4 
 第三步：吃透 AG-06（全书最重要的 Volume）
   → Phase 3/AG-06 Agent持久记忆与智能编排 → 四层记忆+缓存体系+Task Graph
   → 这里面的 Python 实现是可直接复制到项目中的生产级代码
-  → 理解了这个，你就理解了 King-Skill 系统的全部设计意图
+  
 
 第四步：按需回溯 Phase 1-2（打基础）
   → 当你在 AG-06 遇到"缓存分层"时 → 回溯 Phase 1 Vol 01（Cache 原理）
@@ -679,7 +678,7 @@ Phase 1 ────→ Phase 2 ────→ Phase 3 ────→ Phase 4 
 | 优化 Token 成本 | AG-06 | 缓存体系 + Token 压缩策略 |
 | 多 Agent 协作 | AG-03, AG-06, AG-07, Vol 12 | 通信 + 编排 + 跨工具 + ZK 信任 |
 | 端侧部署 | AG-04 | 具身智能 + 传感器融合 |
-| Agent 系统定制 | AG-07, AG-03, King-Skill 全系 | 跨工具原创 Agent 设计 + Skill 路由 + MCP |
+| Agent 系统定制 | AG-07, AG-03 | 跨工具原创 Agent 设计 + Skill 路由 + MCP |
 
 #### 学习节奏建议
 
@@ -717,13 +716,8 @@ Phase 1 ────→ Phase 2 ────→ Phase 3 ────→ Phase 4 
   对每个 Volume，关注其"拓扑性展开"列 —— 它指向了：
   - 同 Phase 内其他 Volume 的依赖关系
   - 跨 Phase 的认知阶梯
-  - 与 King-Skill 系统的架构映射
-  - 与手册概念原型的直觉对齐
 
-第三步：精读 AG-06 + King-Skill 拓扑链（核心洞察）
-  → 教材 AG-06 与 King-Skill 系统形成了一条完整的拓扑链：
-    四层记忆 → 4 Hook 节点 | 缓存体系 → 引力盆 | Task Graph → 路由依赖链
-  → 理解这条链，你就理解了"从教材理论到工程系统"的认知跃迁路径
+  - 与手册概念原型的直觉对齐
 
 第四步：横向对比阅读
   → 读 Vol 01 §1.1 存储层次结构 + 读 AG-06 §6.2 缓存体系 → 理解"分层"思想的跨域复用
@@ -743,15 +737,15 @@ Phase 1 ────→ Phase 2 ────→ Phase 3 ────→ Phase 4 
 
 #### 研究者专属工具：知识拓扑查询表
 
-| 你想研究的命题 | 相关教材 Volume | 关联 King-Skill 组件 |
+| 你想研究的命题 | 相关教材 Volume |
 |--------------|----------------|-------------------|
-| Token 经济学的本质 | Vol 01 §1.1, Vol 03 §3.3, AG-06 §6.3 | token-stats, 引力盆, L0/L1 |
-| 分层抽象的设计模式 | Vol 01 §1.1, AG-06 §6.1-6.2 | 4 Hook, 四层路由, LSO-DAO |
-| 图拓扑与推理 | Vol 02 §2.2, Vol 04 §4.3, AG-06 §6.4, Vol 10 | SkillHub, Task Graph, 机械降神 |
-| 约束与边界 | Vol 08 §8.2, Vol 07 §7.2 | Hook D1/D2/D3, L2 签名匹配 |
-| 多 Agent 通信范式 | AG-03 §3.3-3.4, AG-07, Vol 08 §8.3, Vol 12 | 20+ Agent 集群, 呼吸管道 |
-| 记忆系统设计 | Vol 05, AG-06 §6.1 | 引力盆冷热分层, Hook 1-4 |
-| 智能的终极形态 | Vol 06, Vol 11, Vol 12, Vol 07 | LSO-DAO 渡劫, 机械降神 |
+| Token 经济学的本质 | Vol 01 §1.1, Vol 03 §3.3, AG-06 §6.3 |
+| 分层抽象的设计模式 | Vol 01 §1.1, AG-06 §6.1-6.2 |
+| 图拓扑与推理 | Vol 02 §2.2, Vol 04 §4.3, AG-06 §6.4, Vol 10 |
+| 约束与边界 | Vol 08 §8.2, Vol 07 §7.2 |
+| 多 Agent 通信范式 | AG-03 §3.3-3.4, AG-07, Vol 08 §8.3, Vol 12 |
+| 记忆系统设计 | Vol 05, AG-06 §6.1 |
+| 智能的终极形态 | Vol 06, Vol 11, Vol 12, Vol 07 |
 
 ---
 
@@ -790,243 +784,20 @@ Phase 1 ────→ Phase 2 ────→ Phase 3 ────→ Phase 4 
 
 全部 Lab 只需 Python 3.8+ 和标准库。不需要 GPU，不需要买 API Key。全部本地运行。
 
-**Q6：我应该先读教材还是先读 King-Skill 系统？**
-
-- 如果你对 AI 底层感兴趣 → 先读教材 Phase 1-3，再读 King-Skill
-- 如果你只关心怎么用好 Agent 系统 → 先读 King-Skill 文件，遇到不解回到教材查原型
-- 最佳路径：先读本文件的"第一部分"建立教材认知 → 再读"第二部分"理解拓扑关系 → 按需深入具体文件
-
 ### 关于内容难度
 
-**Q7：不看 Phase 4-5 能实践吗？**
+**Q6：不看 Phase 4-5 能实践吗？**
 
 能。Phase 3 就是完整的工程实战层，看完 AG-01 到 AG-06 已经可以做出可用的 Agent 系统。Phase 4-5 是深水区和理论前沿，适合进阶。
 
-**Q8：手册的 11 个比喻真的有用吗？**
+**Q7：手册的 11 个比喻真的有用吗？**
 
 这套教材的核心设计理念之一就是"先建立系统 1 直觉，再深入系统 2 分析"。11 个比喻原型是精心设计的认知锚点，在读到对应的教材 Volume 时，你会发现这些比喻让复杂概念变得"理所当然"。
 
-**Q9：代码部分有多难？**
+**Q8：代码部分有多难？**
 
 AG-06 的代码最复杂（四层记忆 + Task Graph + Token 预算），但也只有约 200 行 Python。其他 Volume 的代码片段通常 20-50 行。全部代码可独立运行，不依赖外部 API。
 
 ---
 
-
 ---
-
-# 📂 第二部分：King-Skill 超智能体技能群系路由系统
-
-## 第七章 · 系统定位与设计哲学
-
-### 1.1 系统定位
-
-King-Skill 是一套以 **King Agent（一体超强智能体）** 为中心拓扑，整合 **cc-switch、token-stats、master-engineer-hub** 三大核心技能，辅以 8 大技能组、20+ Agent 集群、LSO-DAO 五境递进、Hook+Loop 质量体系的完整 AI 智能体路由生态。
-
-> **一句话**：King-Skill 是一个 AI 智能体的"操作系统内核"——管理"进程"（Agent）、调度"资源"（Provider/Token）、控制"IO"（MCP 工具）。
-
-### 1.2 四大核心设计哲学
-
-| 哲学 | 原文 | 本质 |
-|------|------|------|
-| **假借修真** | 不持一物，而万物皆备。不预一器，而万器待召。 | 借用 LLM 能力实现智能体路由，自己不开发 AI；90% 请求 0-Token 完成 |
-| **四层路由** | L0 引力盆→L1 特征词典→L2 工具签名→L3 LLM 裁决 | 从 O(1) 到 O(LLM) 的成本递进，动态平衡速度与灵活性 |
-| **机械降神** | 不够用？现找、现装、现用、现扔 | 当系统工具不足以处理请求时，动态搜索→克隆→注入→执行→回收 |
-| **视野隔离** | A 类看 2 个工具，B 类看 4 个，C 类看 5 个 | 每个 Agent 只看到完成任务所需的最小工具集，杜绝信息过载 |
-
----
-
-## 第八章 · 四层路由拓扑
-
-```
-请求到达 →
-  ├─ L0：引力盆（Hash 表：域特征→[AgentID, SkillID, 成功率]）
-  │   └─ 命中 → 直接调用（0 Token，~70% 请求）
-  │
-  ├─ L1：特征词典（Trie 树：关键词→域）
-  │   └─ 匹配 → 域识别→Skill匹配→Agent调用（0 Token，~20% 请求）
-  │
-  ├─ L2：工具签名（参数 Schema 精确匹配）
-  │   └─ 匹配 → 精确调用 cc-switch/token-stats（≤50 Token，~5% 请求）
-  │
-  └─ L3：LLM 裁决（上下文注入 + LLM 分析）
-      └─ 生成路径→执行→成功→写入引力盆（全量 Token，~5% 请求）
-```
-
-> **效率**：L0+L1 覆盖 ~90% 请求、0 Token 消耗；仅 ~5% 需要 LLM 参与。
-
-### 三大核心技能
-
-| 技能 | 角色 | 工具数 | 核心功能 |
-|------|------|--------|---------|
-| **cc-switch** | AI Provider 路由 + MCP 管理 | 10 | Provider 切换、MCP 热重载、环境检测 |
-| **token-stats** | Token 审计 + 预算管理 | 6 | Token 用量查询、预算告警、成本对比 |
-| **master-engineer-hub** | 路由编排引擎 | 1（入口） | 四层路由 L0/L1/L2/L3、引力盆路径固化 |
-
----
-
-## 第九章 · 系统架构全景
-
-```
-                    ┌─────────────────────────────────────┐
-                    │         用户请求（自然语言）           │
-                    └──────────────┬──────────────────────┘
-                                   │
-                    ┌──────────────▼──────────────────────┐
-                    │       master-engineer-hub            │
-                    │   （四层路由引擎：L0/L1/L2/L3）       │
-                    └──────┬──────────────┬───────────────┘
-                           │              │
-               ┌───────────▼────┐   ┌────▼──────────────┐
-               │   cc-switch    │   │    token-stats     │
-               │ (Provider 管理) │   │  (Token 审计预算)  │
-               │  10 MCP 工具   │   │   6 MCP 工具       │
-               └─────────┬──────┘   └────┬──────────────┘
-                         │               │
-               ┌─────────▼───────────────▼────────────────┐
-               │          SkillHub（8 大技能组）             │
-               │    域识别 → 技能匹配 → 路由分发              │
-               └─────────────────┬────────────────────────┘
-                                 │
-               ┌─────────────────▼────────────────────────┐
-               │        20+ Agent 集群（7+8+5+3）          │
-               │  7 核心 │ 8 工程 │ 5 三合一 │ 3 路由/调度   │
-               │  A类(≤2工具) B类(≤4工具) C类(≤5工具)     │
-               └─────────────────┬────────────────────────┘
-                                 │
-               ┌─────────────────▼────────────────────────┐
-               │    LSO-DAO 五境递进 + 呼吸管道             │
-               │  筑基→金丹→元婴→化神→渡劫                  │
-               │  吸→存→呼→化→归                          │
-               └─────────────────┬────────────────────────┘
-                                 │
-               ┌─────────────────▼────────────────────────┐
-               │    Hook+Loop 质量体系                     │
-               │  4 Hook（准备→执行→验收→完成）             │
-               │  D1(格式) D2(功能) D3(性能)              │
-               │  循环上限 3 次                            │
-               └──────────────────────────────────────────┘
-```
-
----
-
-## 第十章 · 与教材体系的拓扑性关联映射
-
-### 4.1 教材 Volume → King-Skill 组件映射全景
-
-| 教材 Phase | 教材 Volume | → 对应 King-Skill 组件 | 拓扑关联说明 |
-|-----------|------------|----------------------|-------------|
-| **P1 物理层** | Vol 01 算力剥削 | 引力盆、AG-06 缓存体系 | Cache 分层的工程思想→引力盆 L0 直通；Loop Tiling→LSO-DAO 分境递进 |
-| | Vol 02 数据结构 | L1 特征词典、SkillHub | Trie 树→L1 Trie 匹配；CSR→Agent 依赖图 |
-| | Vol 09 内核映射 | 机械降神 | Syscall 优化的"减少不必要切换"→机械降神的一次性生命周期 |
-| **P2 语义层** | Vol 03 Embedding | L2 工具签名、引力盆 | 高维向量匹配→参数 Schema 匹配；余弦相似度→引力盆 Hash 索引 |
-| | Vol 04 RAG/图 | SkillHub 注册表、AG-06 记忆 | 向量索引→Skill 注册索引；HNSW 高速检索→技能组优选调度 |
-| | Vol 04.5 多模态 | 20+ Agent 多模态集群 | 多个专用模型+编排器→A/B/C 三类 Agent 协作 |
-| **P3 实战层** | AG-01 模型选型 | cc-switch Provider 路由 | 8 类模型→10 个 Provider；选型决策树→四层路由决策树 |
-| | AG-02 学习 Agent | A/B 类 Agent + Hook | 论文 Agent→B 类工程 Agent；实验验证→Hook+Loop 循环 |
-| | AG-03 工程 Agent | 全 Agent 集群 + 机械降神 | 6 大场景→全 Agent 协作；CC Switch/Hermes→King-Skill 三大技能的原型 |
-| | AG-04 具身智能 | Agent 视野隔离 + 呼吸管道 | 端侧约束→A/B/C 视野限制；传感器融合→LSO-DAO 化神融合 |
-| | AG-05 本地部署 | cc-switch env_check | 硬件检测→环境检测工具；蒸馏 4 阶段→五境递进 |
-| | **AG-06 记忆编排** | **→ 整个 King-Skill 系统** | **四层记忆→4 Hook；缓存体系→引力盆；Token 压缩→token-stats；Task Graph→路由依赖链——AG-06 是 King-Skill 的教材原型** |
-| | **AG-07 跨工具原创智能体** | **→ King-Skill 路由系统"落地接口"** | **11 工具 × 4 维度（System Prompt 入口/Skill 机制/MCP 支持/路由方式）→ 原创智能体是 King-Skill 路由系统在 IDE 层的具体实现** |
-| | Vol 08 Agent 部署 | Hook+Loop + LSO-DAO | ReAct→Hook 升级；FSM→D1/D2/D3 验收 |
-| **P4 认知层** | Vol 05 记忆(Alaya) | 引力盆冷热分层 | 遗忘曲线→30 天不命中自动衰减；记忆分层→L0/L1/L2 缓存层级 |
-| | Vol 06 流形 | 四层路由降维 | 高维→低维流形→高维请求→L0/L1/L2/L3 分级 |
-| | Vol 10 拓扑图谱 | 机械降神搜索 + 引力盆 权重 | PageRank→引力盆 success_count 加权；子图提取→机械降神动态扩展 |
-| **P5 理论层** | Vol 07 Neuro-Symbolic | L2 精确匹配 + Hook D1/D2/D3 | LLM+Z3→LLM 输出+形式化校验；约束求解→Schema 精确匹配 |
-| | Vol 11 SAE | L1 特征词典 | SAE 稀疏特征→Trie 关键词；可解释性→路由透明性 |
-| | Vol 12 ZK-ML | 机械降神一次性生命周期 | ZK 不披露中间状态→注入→执行→回收；多 Agent 信任→路由可信决策 |
-
-### 4.2 核心拓扑链：AG-06 → King-Skill 的完整源头
-
-AG-06（Agent 持久记忆与智能编排）是整本教材中**与 King-Skill 系统拓扑关联最密切**的 Volume。以下是对应关系：
-
-| AG-06 § | 核心概念 | King-Skill 对应组件 | 拓扑演化 |
-|---------|---------|-------------------|---------|
-| §6.1 四层记忆架构 | 工作记忆→情景→语义→程序 | Hook 1→2→3→4 | 记忆层的 4 级→质量验收的 4 节点 |
-| §6.2 缓存体系 | L1 Prompt→L2 Semantic→L3 KV | 引力盆 3 级固化 | 缓存命中→路由命中，同一核心思想的不同抽象层次 |
-| §6.3 Token 压缩 | 修剪→摘要→结构压缩 | token-stats 技能 | Token 预算管理的算法来源 |
-| §6.4 Task Graph | 拓扑排序+依赖分析 | L0→L1→L2→L3 路由链 | 任务依赖→路由依赖，同构 |
-| §6.5 多模态索引 | 统一 Embedding 索引 | 多模态 Agent 路由 | 模态统一→Agent 统一调度 |
-
-### 4.3 教材学习 → King-Skill 路由的映射路径
-
-```
-教材学到这里 → 理解 King-Skill 的这个组件
-─────────────────────────────────────────
-Vol 01 缓存/SIMD   → 引力盆 L0 直通 / 批处理加速
-Vol 02 数据结构    → L1 Trie 匹配 / SkillHub 注册表
-Vol 03 Embedding   → L2 参数 Schema / 高维匹配
-Vol 04 RAG/图      → SkillHub 分发 / Agent 调度图
-AG-01 模型选型     → cc-switch Provider 切换
-AG-02 学习 Agent   → Agent 集群的 A/B 类
-AG-03 工程 Agent   → 全 Agent 集群 + 机械降神
-AG-04 具身智能     → 视野隔离 + 呼吸管道
-AG-05 部署蒸馏     → cc-switch env_check
-AG-06 记忆编排     → ★ 整个 King-Skill 系统的原型
-AG-07 跨工具原创   → King-Skill 路由系统"落地接口"
-Vol 08 Agent 部署  → Hook+Loop + FSM
-Vol 05 Alaya       → 引力盆衰减机制
-Vol 06 流形        → 四层路由降维
-Vol 10 拓扑        → 机械降神搜索 + 引力盆权重
-Vol 07 Neuro-Sym   → Hook D1/D2/D3 校验
-Vol 11 SAE         → L1 特征关键词
-Vol 12 ZK-ML       → 一次性生命周期
-```
-
----
-
-# 📂 第三部分：文件索引与快速路径
-
-## 教材文件索引
-
-| 目录 | 内容 | 适合读者 |
-|------|------|---------|
-| `教材：The Automated Mind/Phase 1/` | 秩序的底座（C++/数据结构/AI辅助学习/内核） | 零基础→入门 |
-| `教材：The Automated Mind/Phase 2/` | 语义空间（Embedding/RAG/多模态） | 有基础 |
-| `教材：The Automated Mind/Phase 3/` | 模型生态与 Agent 实践（★ 全书核心，9 卷：AG-01~AG-07 + Vol 08 + 08.5） | 所有读者 |
-| `教材：The Automated Mind/Phase 4/` | 深水区与几何（记忆/流形/拓扑） | 进阶 |
-| `教材：The Automated Mind/Phase 5/` | 规则重塑（Neuro-Symbolic/SAE/ZK-ML） | 理论探索 |
-| `手册：核心概念降维缓存/` | 11 个比喻原型 + 使用策略速查 | 所有读者（建立直觉） |
-| `配套实验/labs/` | 12 个自包含实验 | 动手派 |
-
-## King-Skill 文件索引
-
-| 文件 | 内容 | 核心概念 | 推荐读者 |
-|------|------|---------|---------|
-| `King-Skill-System/README.md` | 系统概述 | 系统总览、快速路径、三技能关系 | 所有读者 |
-| `King-Skill-System/01-King-Agent-Design.md` | King Agent 设计理念 | 假借修真、机械降神、Hook+Loop、D1/D2/D3 | 所有读者 |
-| `King-Skill-System/02-System-Prompt-Architecture.md` | System Prompt 架构 | 四层结构、延迟加载、视野隔离、依赖链 | 架构师、研究者 |
-| `King-Skill-System/03-Routing-Topology.md` | 三技能路由拓扑 | cc-switch、token-stats、master-engineer-hub 联动 | 所有读者 |
-| `King-Skill-System/04-SkillHub-Registry.md` | SkillHub 注册与分发 | 8 大技能组、注册流程、匹配机制 | 开发者 |
-| `King-Skill-System/05-LSO-DAO-Five-Realms.md` | 五境递进架构 | 筑基→金丹→元婴→化神→渡劫、呼吸管道 | 架构师 |
-| `King-Skill-System/06-Agent-Cluster-20plus.md` | 20+ Agent 集群 | 核心 7 + 工程 8 + 三合一 5 + 路由 3 | 开发者、架构师 |
-| `King-Skill-System/07-Hook-Loop-Engineering.md` | Hook+Loop 工程约束 | 4 Hook、D1/D2/D3、3 次循环 | 开发者、架构师 |
-| `King-Skill-System/08-Complete-Topology-Map.md` | 完整拓扑图 | 7 层架构、数据流路径、依赖关系 | 所有读者 |
-| `King-Skill-System/09-System-Prompt-References.md` | System Prompt 引用图 | 22 文件依赖链、引用热力图 | 架构师、研究者 |
-| `King-Skill-System/10-Migration-Deployment-Guide.md` | **跨工具迁移部署指南** | 全系路由系统迁移部署 + 嵌入式模型自适应机制 | 开发者、架构师 |
-| `King-Skill-System/11-Self-Cognitive-OS-Manual.md` | **自我认知 OS 脉络手册** | AI 智能体自解构 / CodeGraph 类认知图谱 | 所有读者、AI 研究者 |
-
----
-
-## 三步快速开始
-
-### 🟢 第一步：建立整体认知（15 分钟）
-
-```
-1. 读完本文件"第一部分"教材体系总览 → 知道 5 个 Phase 和 22 个 Volume 各自讲什么
-2. 读完本文件"第二部分"King-Skill 系统概览 → 知道四层路由和三大技能
-3. 选择你的切入点（见下方）
-```
-
-### 🟡 第二步：选择阅读路径
-
-**路径 A · 新手系统学习（推荐）**
-```
-Phase 1 (Vol 01→02→02.5→09) → Phase 2 (03→04→04.5) → Phase 3 (AG-01→AG-05→AG-02→AG-06→AG-03→AG-07→AG-04→Vol 08→08.5) → Phase 4 (05→06→10) → Phase 5 (07→11→12)
-```
-
-**路径 B · 工程师问题驱动**
-```
-先读 Phase 3 确定实践方向 →
-→ Phase 3/AG-07 跨工具原创智能体（IDE 自定义 Agent 设计）
